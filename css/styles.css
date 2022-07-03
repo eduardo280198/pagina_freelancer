@@ -7,10 +7,20 @@
     --grisClaro: #DFE9F3;
 }
 
+
 /* Globales */
 html{
     font-size: 62.5%;
     box-sizing: border-box; /*Box Model*/
+    scroll-snap-type: y mandatory;
+}
+
+    /*Scroll Snap*/
+.servicios,
+.navegacion-principal,
+.formulario{
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
 }
 
 *, *:before, *:after {
@@ -51,11 +61,13 @@ body{
     border-radius: .5rem;
     width: 90%;
     text-align: center;
+    border: none;
 }
 
 .boton:hover{
     background-color: var(--primario);
     color:var(--oscuro);
+    cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -85,6 +97,26 @@ h1, h2, h3{
 /* Titulos */
 .titulo span{
     font-size: 2rem;
+}
+
+/*Utilidades*/
+.w-sm-100{
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+
+    .w-sm-100{
+        width: auto;
+    }
+}
+
+.flex{
+    display: flex;
+}
+
+.alinear-derecha{
+    justify-content: flex-end;
 }
 
 /* Navegación principal */
@@ -154,6 +186,7 @@ h1, h2, h3{
 }
 
 /*Servicios*/
+
 @media (min-width: 768px) {
 
     .servicios{
@@ -189,4 +222,73 @@ h1, h2, h3{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+/*Formulario*/
+.formulario{
+
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.47);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.47);
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.47);
+    background-color: var(--gris);
+    width: min(60rem, 100%); /*Utilizar el valor mas pequeño*/
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset{
+    border: none;
+}
+
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+
+@media (min-width: 768px) {
+
+    .formulario .contenedor-campos{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem; /*Agrega la separación entre las columnas*/
+    }
+}
+
+.formulario .contenedor-campos .campo:nth-child(3),
+.formulario .contenedor-campos .campo:nth-child(4){ /*Selecciona uno de los div con el class campo, empezando a contar desde 1*/
+    grid-column: 1 / 3; /*Expande las columnas que puede abarcar en la cuadricula de grid*/
+}
+
+.formulario .contenedor-campos .campo{
+    margin-bottom: 1rem;
+}
+
+.formulario .contenedor-campos .campo textarea{
+    height: 20rem;
+}
+
+.formulario .contenedor-campos .campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.formulario .contenedor-campos .campo .input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+
+/*Footer*/
+
+.footer{
+    text-align: center;
 }
